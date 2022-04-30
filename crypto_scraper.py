@@ -1,8 +1,9 @@
 import requests
 from prettytable import PrettyTable
+import os
 
-api_key = 'pk_34f14243a7624a73a7ff7000f47f7e17'
-
+"""api_key = 'pk_34f14243a7624a73a7ff7000f47f7e17' #TODO hide api key - add env variable
+"""
 class CryptoCurrency:
     base_url = "https://cloud.iexapis.com/stable/crypto"
     prices = []
@@ -12,7 +13,7 @@ class CryptoCurrency:
 
     @property
     def complete_url(self):
-        return f"{CryptoCurrency.base_url}/{self.symbol}/price?token={api_key}"
+        return f"{CryptoCurrency.base_url}/{self.symbol}/price?token={os.environ['API_KEY']}"
 
     @property
     def price(self):
