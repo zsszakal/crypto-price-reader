@@ -2,8 +2,6 @@ import requests
 from prettytable import PrettyTable
 import os
 
-"""api_key = 'pk_34f14243a7624a73a7ff7000f47f7e17' #TODO hide api key - add env variable
-"""
 class CryptoCurrency:
     base_url = "https://cloud.iexapis.com/stable/crypto"
     prices = []
@@ -15,9 +13,10 @@ class CryptoCurrency:
     def complete_url(self):
         return f"{CryptoCurrency.base_url}/{self.symbol}/price?token={os.environ['API_KEY']}"
 
+    # Convert JSON data into a Python dictionary
     @property
     def price(self):
-        req = requests.get(self.complete_url).json() #This method will convert the JSON data into a Python dictionary
+        req = requests.get(self.complete_url).json()
         return float(req.get('price'))
 
     def add_prices_to_list(self):

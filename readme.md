@@ -1,6 +1,6 @@
-Simple cryptocurrency price tracker app.
+Cryptocurrency price tracker
 
 Features:
 - Gets latest crypto price as JSON object
-- Updates current prices every 3 seconds
+- Updates current price per 3 seconds
 - Displays data in a pretty format
